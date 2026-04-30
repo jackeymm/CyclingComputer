@@ -1,0 +1,54 @@
+<navigation-bar title="码表" back="{{false}}" color="#111111" background="#FFFFFF" />
+
+<view class="page">
+  <view class="speed-panel">
+    <text class="speed-label">当前速度</text>
+    <view class="speed-row">
+      <text class="speed-value">{{speed}}</text>
+      <text class="speed-unit">km/h</text>
+    </view>
+  </view>
+
+  <view class="stats-grid">
+    <view class="stat-card">
+      <text class="stat-label">骑行时间</text>
+      <text class="stat-value">{{duration}}</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-label">骑行距离</text>
+      <text class="stat-value">{{distance}}</text>
+      <text class="stat-unit">km</text>
+    </view>
+  </view>
+
+  <view class="status-card">
+    <text class="status-title">{{statusText}}</text>
+    <text class="status-desc">{{statusHint}}</text>
+  </view>
+
+  <view wx:if="{{permissionErrorVisible}}" class="permission-card">
+    <text class="permission-title">定位权限异常</text>
+    <text class="permission-desc">{{permissionErrorText}}</text>
+    <button
+      wx:if="{{permissionActionVisible}}"
+      class="permission-button"
+      open-type="openSetting"
+      bindopensetting="onOpenSettingChange"
+    >
+      前往开启定位权限
+    </button>
+  </view>
+
+  <view class="action-row">
+    <button class="action-button action-button--primary" bindtap="onTapPrimaryAction">
+      <text class="action-text action-text--primary">{{primaryActionText}}</text>
+    </button>
+    <button
+      class="action-button action-button--ghost"
+      bindtap="onTapSecondaryAction"
+      disabled="{{secondaryActionDisabled}}"
+    >
+      <text class="action-text">{{secondaryActionText}}</text>
+    </button>
+  </view>
+</view>

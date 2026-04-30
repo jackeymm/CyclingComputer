@@ -1,0 +1,43 @@
+<navigation-bar title="骑行总结" back="{{true}}" color="#111111" background="#FFFFFF" />
+
+<view class="page">
+  <view class="hero-card">
+    <text class="eyebrow">Ride Summary</text>
+    <text class="title">{{title}}</text>
+    <text class="desc">{{desc}}</text>
+  </view>
+
+  <view class="summary-card">
+    <view class="summary-row">
+      <text class="summary-label">总骑行时间</text>
+      <text class="summary-value">{{totalDuration}}</text>
+    </view>
+    <view class="summary-row">
+      <text class="summary-label">总骑行距离</text>
+      <view class="summary-inline">
+        <text class="summary-value">{{totalDistance}}</text>
+        <text class="summary-unit">km</text>
+      </view>
+    </view>
+    <view class="summary-row summary-row--last">
+      <text class="summary-label">平均速度</text>
+      <view class="summary-inline">
+        <text class="summary-value">{{averageSpeed}}</text>
+        <text class="summary-unit">km/h</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-panel">
+    <button
+      class="action-button action-button--primary"
+      bindtap="onTapSaveRecord"
+      disabled="{{saveDisabled}}"
+    >
+      <text class="action-text action-text--primary">保存记录</text>
+    </button>
+    <button class="action-button action-button--ghost" bindtap="onTapCancelReturn">
+      <text class="action-text">取消返回</text>
+    </button>
+  </view>
+</view>
